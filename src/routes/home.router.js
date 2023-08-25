@@ -1,9 +1,8 @@
-const {Router} = require('express');
-
+const { Router } = require('express');
+const controller = require("../controllers/test.controller")
+const testingMiddleware = require("../middlewares/test.middleware")
 const router = Router();
 
-router.get('/api', (req, res) =>{
-    res.send('TALLER AUTOS API');
-})
+router.get('/', testingMiddleware, controller.test)
 
 module.exports = router;
