@@ -5,5 +5,4 @@ const router = Router();
 
 router.get('/', testingMiddleware, controller.get)
 
-
 module.exports = router;
