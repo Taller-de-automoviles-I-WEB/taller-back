@@ -1,4 +1,4 @@
-const testingMiddleware = (req,res,next) => {
+const testingMiddleware = (req, res, next) => {
     console.log(`Now running route ${req.baseUrl}`)
     next();
 }
