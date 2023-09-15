@@ -32,11 +32,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
 
-  let config = {
+  const config = {
     tableName: 'clientes',
     timestamps: false,
-    createdAt: false
-  }
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
+    deletedAt: 'deleted_at'
+};
 
   const Clientes = sequelize.define(alias, cols, config)
   return Clientes;

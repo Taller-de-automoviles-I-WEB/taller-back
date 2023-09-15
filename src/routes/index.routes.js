@@ -6,7 +6,7 @@ const router = Router();
 
 router.use('/api', homeRouter);
 router.use('/test', testRouter);
-router.use('/api/clientes', clientesRouter);
+router.use('/clientes', clientesRouter);
 
 
 module.exports = router;
