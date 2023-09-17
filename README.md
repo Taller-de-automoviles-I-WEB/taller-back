@@ -88,7 +88,7 @@ GET /providers
 To get a proviver by id , make a **get** request to this endpoint with the provider's id as a parameter.
 
 ```http
-GET /id/:id
+GET /providers/id/:id
 ```
 
 **Successful Response**
@@ -114,7 +114,7 @@ GET /id/:id
 To get a proviver by id , make a **get** request to this endpoint with the provider's id as a parameter.
 
 ```http
-GET /email/:email
+GET /providers/email/:email
 ```
 
 **Successful Response**
