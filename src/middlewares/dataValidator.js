@@ -72,6 +72,26 @@ module.exports = {
       
     }
   ],
+
+  //Providers
+  checkProviders: [
+    check('fullName').exists().withMessage('fullname is requerid').isString().withMessage('fullname must be a string').trim().escape(),
+    check('address').exists().withMessage('address is requerid').isString().withMessage('address must be a string').trim().escape(),
+    check('password').exists().withMessage('password is requerid').isString().withMessage('password must be a string').trim().escape(),
+    check('email').exists().withMessage('email is requerid').isEmail().normalizeEmail(),
+    check('industry').exists().withMessage('industry is requerid').isString().withMessage('industry must be a string').trim().escape(),
+    check('state').exists().withMessage('state is requerid').isBoolean().withMessage('state must be a boolean'),
+    async (req, res, next) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+      }
+
+      next();
+    }
+  ],
+
+
   Token: [
     async (req, res, next) => {
       const token = req.headers[ 'authorization' ];

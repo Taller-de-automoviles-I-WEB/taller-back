@@ -44,6 +44,13 @@ module.exports = (sequelize, dataTypes) => {
         tableName: 'providers',
     };
 
-    const Provider = sequelize.define(alias, cols, config);
+    const Provider = sequelize.define(alias, cols, {
+        ...config,
+        defaultScope: {
+            attributes: {
+                exclude: ['password']
+            }
+        }
+    });
     return Provider;
 }
