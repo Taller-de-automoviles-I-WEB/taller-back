@@ -62,9 +62,11 @@ const updateProviderService = async (id, updatedData) => {
     const t = await db.sequelize.transaction();
     try {
       const existingProvider = await db.Provider.findByPk(id);
-        updatedData.password = await passwordHandler.hashPassword(updatedData.password)
       if (!existingProvider) {
         throw new Error('Provider not found');
+      }
+      if(updatedData.password){
+        updatedData.password = await passwordHandler.hashPassword(updatedData.password)
       }
       const updatedProvider = await existingProvider.update(updatedData, {
         transaction: t

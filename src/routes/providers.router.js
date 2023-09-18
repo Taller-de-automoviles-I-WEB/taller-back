@@ -43,7 +43,6 @@ router.post('/',validateData.createProviders, async (req, res) => {
 
 router.put('/:id',validateData.updateProviders, async (req, res) => {
     try {
-        console.log(req.body)
         await updateProvider(req, res)
     } catch (error) {
         console.log(error)

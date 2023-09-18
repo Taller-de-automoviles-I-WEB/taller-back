@@ -62,12 +62,14 @@ const updateProvider = async (req, res) =>{
         res.status(200).json({ newProvider, message: 'Provider update success' });
     } catch (error) {
         handleHttp.errorHandler(error);
-        if(error.name === 'SequelizeUniqueConstraintError'){
-            res.status(409).json({message: 'Email already in use.' });
-        }else if(error.message === 'Provider not found') {
+        if (error.name === 'SequelizeUniqueConstraintError') {
+            res.status(409).json({ message: 'Email already in use.' });
+        } else if (error.message === 'Provider not found') {
             res.status(404).json({ message: 'Provider not found.' });
+        } else {
+            console.log(error);
+            res.status(500).json({ message: 'Internal server error' });
         }
-        throw error
     }
 }
 
