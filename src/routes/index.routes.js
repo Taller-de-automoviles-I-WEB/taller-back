@@ -6,8 +6,8 @@ const clientesRouter = require('./clientes.router')
 const providersRouter = require('./providers.router')
 const router = Router();
 
-router.use('/api', homeRouter);
-router.use('/api/contact', contactRouter);
+router.use('/', homeRouter);
+router.use('/contact', contactRouter);
 router.use('/test', testRouter);
 router.use('/clientes', clientesRouter);
 router.use('/providers', providersRouter)
