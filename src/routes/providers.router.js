@@ -31,7 +31,7 @@ router.get('/id/:id', async (req, res) => {
     }
 })
 
-router.post('/',validateData.checkProviders, async (req, res) => {
+router.post('/',validateData.createProviders, async (req, res) => {
     try {
         console.log(req.body)
         await createProvider(req, res)
@@ -41,7 +41,7 @@ router.post('/',validateData.checkProviders, async (req, res) => {
     }
 })
 
-router.put('/:id',validateData.checkProviders, async (req, res) => {
+router.put('/:id',validateData.updateProviders, async (req, res) => {
     try {
         console.log(req.body)
         await updateProvider(req, res)
