@@ -1,5 +1,6 @@
 # API Reference
 
+All routes are prefixed with `/api`.
 
 - Remember run `npm install` in the main directory before starting the server and create a .env file with the necessary environment variables
 - To start the server, run `npm run dev` in the main directory, then navigate to `localhost:3001/` in your browser.
