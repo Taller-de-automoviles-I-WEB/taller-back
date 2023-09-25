@@ -9,7 +9,6 @@ module.exports = {
     check('apellido').isString().trim().escape(),
     check('domicilio').isString().trim().escape(),
     check('tipo').isString().trim().escape(),
-    check('usuario').isString().trim().escape(),
     check('clave').isString().trim().escape(),
     check('usuario').trim().isEmail().normalizeEmail(),
     async (req, res, next) => {
