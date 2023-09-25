@@ -7,6 +7,11 @@ const requestValidations = [
     body("lastName")
         .notEmpty()
         .withMessage("Debes ingresar tu apellido"),
+    body("phone")
+        .isString()
+        .trim().escape()
+        .notEmpty()
+        .withMessage("Debes ingresar un teléfono"),
     body("email")
         .notEmpty()
         .withMessage("Debes ingresar un email")
@@ -15,7 +20,7 @@ const requestValidations = [
         .withMessage("Email invalido"),
     body("question")
         .notEmpty()
-        .withMessage("Debes ingresar tu apellido"),
+        .withMessage("Debes ingresar una consulta"),
 ]
 
 module.exports = {

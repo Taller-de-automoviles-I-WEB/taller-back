@@ -71,10 +71,10 @@ module.exports = {
       const cliente = await service.eliminarCliente(req.params.id);
 
       cliente === 1
-        ? res.send('Cliente eliminado')
+        ? res.json({message : 'Cliente eliminado'})
         : cliente === 0
-          ? res.send('El cliente no existe')
-          : res.status(500).send('Internal server error')
+          ? res.json({message:'El cliente no existe'})
+          : res.status(500).json({message : 'Internal server error'})
 
     } catch (error) {
 
