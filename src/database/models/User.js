@@ -1,7 +1,7 @@
 module.exports = (sequelize, dataTypes) => {
-    const alias = 'Provider';
+    const alias = 'User';
     const cols = {
-        id: {
+        userID: {
             type: dataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
@@ -14,6 +14,10 @@ module.exports = (sequelize, dataTypes) => {
         address: {
             type: dataTypes.STRING(50),
             allowNull: false,
+        },
+        username: {
+            type: dataTypes.STRING,
+            allowNull: false
         },
         password: {
             type: dataTypes.STRING,
@@ -36,15 +40,19 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.BOOLEAN,
             defaultValue: true,
         },
+        phone: {
+            type: dataTypes.STRING,
+            allowNull: true
+        },
     };
     const config = {
         timestamp: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
-        tableName: 'providers',
+        tableName: 'users',
     };
 
-    const Provider = sequelize.define(alias, cols, {
+    const User = sequelize.define(alias, cols, {
         ...config,
         defaultScope: {
             attributes: {
@@ -52,5 +60,22 @@ module.exports = (sequelize, dataTypes) => {
             }
         }
     });
-    return Provider;
+
+    User.associate = (models) => {
+        User.belongsTo(models.Role, {
+            foreignKey: 'roleID',
+            targetKey: 'roleID'
+        });
+        User.hasMany(models.OrderService, {
+            foreignKey: 'technicianID',
+        });
+        User.hasMany(models.Vehicle, {
+            foreignKey: 'userID',
+        })
+        User.hasMany(models.Order, {
+            foreignKey: 'userID',
+        })
+    };
+
+    return User;
 }
