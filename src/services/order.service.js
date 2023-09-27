@@ -28,10 +28,10 @@ const getOrderById = async (orderId) => {
 
 // Obtener todas las ordenes
 
-const getAllOrder = async (orderId) => {
+const getAllOrder = async () => {
     try {
-        const order = await db.Order.findByPk(orderId);
-        return order;
+        const orders = await db.Order.findAll();
+        return orders;
     } catch (error) {
         handleHttp.errorHandler(error);
         throw error;
