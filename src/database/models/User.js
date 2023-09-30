@@ -54,11 +54,11 @@ module.exports = (sequelize, dataTypes) => {
 
     const User = sequelize.define(alias, cols, {
         ...config,
-        defaultScope: {
-            attributes: {
-                exclude: ['password']
-            }
-        }
+        // defaultScope: {
+        //     attributes: {
+        //         exclude: ['password']
+        //     }
+        // }
     });
 
     User.associate = (models) => {
