@@ -7,11 +7,13 @@ const testRouter = require('./test.router')
 const clientesRouter = require('./clientes.router')
 const providersRouter = require('./providers.router')
 const maintenanceHistoryRouter = require('./maintenanceHistory.router')
+const supplierRouter = require('./supplier.router');
 const router = Router();
 
 router.use('/', homeRouter);
-router.use('/auth', authRouter)
-router.use('/user', userRouter)
+router.use('/auth', authRouter);
+router.use('/user', userRouter);
+router.use('/supplier', supplierRouter);
 router.use('/contact', contactRouter);
 router.use('/test', testRouter);
 router.use('/clientes', clientesRouter);
