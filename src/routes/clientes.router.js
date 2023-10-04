@@ -1,6 +1,6 @@
 const { Router } = require('express');
-const validarSesion = require('../middlewares/session')
-const controller = require('../controllers/clientes.js');
+const validarSesion = require('../middlewares/session.js')
+const controller = require('../controllers/clientes.controller.js');
 const validarData = require('../middlewares/dataValidator.js');
 
 const router = Router();

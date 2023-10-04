@@ -1,4 +1,4 @@
-const service = require('../services/clientes');
+const service = require('../services/clientes.services');
 const handleHttp = require('../utils/handle.logs')
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
           : res.status(500).send('Internal server error')
 
     } catch (error) {
-  
+
       handleHttp.errorHandler(error, req, res);
 
     }
@@ -71,10 +71,10 @@ module.exports = {
       const cliente = await service.eliminarCliente(req.params.id);
 
       cliente === 1
-        ? res.json({message : 'Cliente eliminado'})
+        ? res.json({ message: 'Cliente eliminado' })
         : cliente === 0
-          ? res.json({message:'El cliente no existe'})
-          : res.status(500).json({message : 'Internal server error'})
+          ? res.json({ message: 'El cliente no existe' })
+          : res.status(500).json({ message: 'Internal server error' })
 
     } catch (error) {
 
